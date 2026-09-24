@@ -37,7 +37,7 @@ app.use(
 // ==========================================
 // Production-Grade CORS Configuration
 // ==========================================
-const defaultOrigins = ['http://localhost', 'http://localhost:3000','https://pushtaklekhan.spmeshram.tech'];
+const defaultOrigins = ['http://localhost', 'http://localhost:3000'];
 
 const allowedOrigins = process.env.CLIENT_URL
   ? Array.from(new Set([...process.env.CLIENT_URL.split(',').map((o) => o.trim()), ...defaultOrigins]))
