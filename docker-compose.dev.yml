@@ -1,0 +1,20 @@
+version: '3.8'
+
+# ── LOCAL DEV — Only Redis runs in Docker ──
+# MongoDB: install locally or use MongoDB Atlas free tier
+# Backend: cd backend && npm run dev
+# Frontend: cd frontend && npm run dev
+
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: inkwell_redis_dev
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_dev_data:/data
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+
+volumes:
+  redis_dev_data:

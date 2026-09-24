@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #1a1612;
+  --ink-soft: #3d342b;
+  --ink-muted: #7a6e62;
+  --parchment: #faf7f2;
+  --parchment-dark: #f0ebe0;
+  --parchment-darker: #e0d8ca;
+  --amber: #d4860a;
+  --amber-light: #fdf3dc;
+  --amber-soft: #f5d98a;
+  --teal: #0f6e56;
+  --teal-light: #e1f5ee;
+  --coral: #993c1d;
+  --coral-light: #faece7;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; font-family: 'DM Sans', system-ui, sans-serif; }
+
+/* Editor content styles */
+.prose-editor h1 { font-size: 28px; font-weight: 700; margin-bottom: 16px; font-family: 'Playfair Display', serif; }
+.prose-editor h2 { font-size: 22px; font-weight: 600; margin-bottom: 12px; font-family: 'Playfair Display', serif; }
+.prose-editor h3 { font-size: 18px; font-weight: 600; margin-bottom: 10px; font-family: 'Playfair Display', serif; }
+.prose-editor p { margin-bottom: 12px; }
+.prose-editor blockquote { border-left: 3px solid var(--amber); padding-left: 18px; color: var(--ink-muted); font-style: italic; margin: 16px 0; }
+.prose-editor ul, .prose-editor ol { padding-left: 24px; margin: 10px 0; }
+.prose-editor li { margin-bottom: 4px; }
+.prose-editor code { font-family: 'DM Mono', monospace; background: var(--parchment-dark); padding: 1px 6px; border-radius: 4px; font-size: 14px; }
+.prose-editor strong { font-weight: 700; }
+.prose-editor em { font-style: italic; }
+.prose-editor img { max-width: 100%; border-radius: 8px; margin: 12px 0; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--parchment-darker); border-radius: 4px; }
