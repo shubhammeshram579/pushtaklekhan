@@ -1,26 +1,34 @@
-name: Production CI/CD Pipeline
+name: Deploy Inkwell Stack to AWS EC2
 
 on:
   push:
     branches:
-      - main
+      - main  # Trigger workflow on pushes to main branch
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Code
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Deploy to AWS EC2 via SSH
+      - name: Deploy to EC2 via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd ~/inkwell
+            cd ~/pushtaklekhan
+            
+            # Pull the latest code changes
+            git reset --hard HEAD
             git pull origin main
+            
+            # Build and restart containers using Docker Compose
             docker compose down
             docker compose up -d --build
-            docker system prune -f
+            
+            # Prune old dangling build layers to conserve disk space
+            docker image prune -f
