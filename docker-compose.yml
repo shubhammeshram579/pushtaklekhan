@@ -156,6 +156,7 @@ services:
     environment:
       - PORT=8000
       - NODE_ENV=production
+      - CLIENT_URL=https://pushtaklekhan.spmeshram.tech
       - MONGO_URI=mongodb://${MONGO_ROOT_USER}:${MONGO_ROOT_PASS}@mongo:27017/inkwell?authSource=admin
       - REDIS_URL=redis://:${REDIS_PASSWORD}@redis:6379
     depends_on:
